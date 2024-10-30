@@ -1,0 +1,25 @@
+.line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between the line and text */
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .line {
+    flex: 1; /* Makes the line expand */
+    border-bottom: 1px solid #000; /* Adjust thickness and color */
+  }
+  
+  .topic-text {
+    margin: 0;
+    padding: 0 10px; /* Optional padding around text */
+    font-size: 35px; /* Adjust text size as needed */
+  }
+  
+  @media (max-width: 768px) {
+    .topic-text {
+      font-size: 24px; /* Adjust font size for mobile screens */
+    }
+  }

@@ -1,0 +1,53 @@
+/* ShopbyCategory.css */
+.shop-by-category {
+  display: flex;
+  flex-direction: column; /* Arrange rows vertically */
+  align-items: center; /* Center rows */
+  gap: 20px; /* Space between rows */
+}
+
+.row {
+  display: flex;
+  justify-content: center; /* Center content in each row */
+  gap: 20px; /* Space between columns */
+}
+
+.column {
+  flex: 1; /* Allow columns to take equal space */
+  max-width: 600px; /* Limit width of each column */
+  position: relative; /* Position for overlay */
+}
+
+.category-image {
+  width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: add border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+}
+
+/* New styles for overlay */
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 10%; /* Adjust rectangle position */
+  left: 10%; /* Adjust rectangle position */
+  width: 80%; /* Rectangle width */
+  height: 80%; /* Rectangle height */
+  background-color: rgba(219, 212, 212, 0.637); /* Initial background color */
+  backdrop-filter: blur(1%); /* Apply blur effect */
+  border-radius: 0px; /* Optional rounded corners */
+  border: 4px solid rgb(250, 250, 250); /* Add border */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Change color on hover */
+.overlay:hover {
+  background-color: rgba(100, 100, 255, 0.7); /* New color on hover */
+}
+
+
+

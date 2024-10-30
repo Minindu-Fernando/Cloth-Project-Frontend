@@ -1,0 +1,23 @@
+/* navbar.css */
+.custom-navbar {
+    width: 100%; /* Ensure the navbar takes full width */
+  }
+  
+  .custom-navbar .nav-link {
+    margin: 0 25px; /* Adjust the distance between topics; change as needed */
+  }
+  
+  .mega-dropdown .dropdown-menu {
+    width: 700px; /* Width of the mega dropdown */
+    right: 10%; /* Align the dropdown to the left */
+    transform: translateX(0); /* Ensure it doesn't shift to the right */
+  }
+  
+  .mega-dropdown .dropdown-menu .dropdown-item {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  .navbar {
+    background-color: #007bff; /* Set navbar color to blue */
+  }
+  

@@ -1,0 +1,23 @@
+.navbar-custom {
+    padding: 10px 20px;
+  }
+  
+  .search-form {
+    flex: 1;
+    max-width: 500px; /* Adjust width as necessary */
+  }
+  
+  .cart-icon {
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .me-2{
+    width: 600px;
+  }
+  
