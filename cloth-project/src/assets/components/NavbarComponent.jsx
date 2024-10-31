@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './navbar.css'; // Import your custom CSS
+import './navbarcomponent.css'; // Import your custom CSS
 
 const NavbarComponent = () => {
   const [showMenDropdown, setShowMenDropdown] = useState(false);
@@ -11,7 +11,7 @@ const NavbarComponent = () => {
   const [showSaleDropdown, setShowSaleDropdown] = useState(false);
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="custom-navbar">
+    <Navbar  variant="dark" expand="lg" className="custom-navbar">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="justify-content-center flex-grow-1">

@@ -16,6 +16,7 @@
 
 ul {
     list-style: none;
+    padding-left: 0px;
 }
 .content{
   margin-top: 100px;
@@ -35,7 +36,7 @@ ul {
 
 .footer-col {
     flex: 1; /* Makes each column take equal space */
-    min-width: 200px; /* Sets a minimum width for smaller screens */
+    min-width: 100px; /* Sets a minimum width for smaller screens */
     padding: 0 15px;
   }
 

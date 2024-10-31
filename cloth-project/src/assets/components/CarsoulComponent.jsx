@@ -1,9 +1,9 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import './carsoulcomponent.css';
-import Slide1 from '../img/img1.png'
-import Slide2 from '../img/img1.png'
 import Slide3 from '../img/img1.png'
+import Slide1 from '../img/carousel1.png';
+import Slide2 from '../img/carousel2.png'
 
 export default function CarsoulComponent() {
   return (

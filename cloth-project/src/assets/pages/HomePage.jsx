@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import NavbarComponent from "../components/NavbarComponent";
 import ShopbyCategory from "../components/ShopbyCategory";
@@ -17,11 +17,39 @@ import Arrival8 from '../img/arrival8.webp';
 import CarsoulComponent from "../components/CarsoulComponent";
 import FooterComponent from "../components/FooterComponent";
 import MainNavbarComponent from "../components/MainNavbarComponent";
-
+import { fetchProducts } from "../services/productService";
 
 export default function HomePage() {
+
+  const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetchProducts()
+            .then(data => setProducts(data))
+            .catch(error => console.error("Error in HomePage:", error));
+    }, []);
+
   return (
-    <div>
+
+<div>
+      {/* Split products into two rows of four columns */}
+      {[0, 1].map((rowIndex) => (
+        <Row key={rowIndex} className="mb-4">
+          {products.slice(rowIndex * 4, rowIndex * 4 + 4).map((product, index) => (
+            <Col key={index} md={2} className="d-flex justify-content-center align-items-center">
+              <NewArrivals
+                image={Arrival1}
+                title={product.productName}
+                text={product.description}
+                price={product.price}
+              />
+            </Col>
+          ))}
+        </Row>
+      ))}
+    </div>
+
+  /*  <div>
     <Row><MainNavbarComponent/></Row>
       <Row className="mb-4">
         <NavbarComponent />
@@ -142,6 +170,6 @@ export default function HomePage() {
         <ShopbyCategory />
       </div>
       <Row><FooterComponent/></Row>
-    </div>
+    </div>*/
   );
 }

@@ -1,4 +1,3 @@
-/* navbar.css */
 .custom-navbar {
     width: 100%; /* Ensure the navbar takes full width */
   }
@@ -16,8 +15,7 @@
   .mega-dropdown .dropdown-menu .dropdown-item {
     white-space: nowrap; /* Prevent text from wrapping */
   }
-  
-  .navbar {
-    background-color: #dc3545; /* Set navbar color to blue */
+  .custom-navbar{
+    background-color: #260758; /* Set navbar color to blue */
   }
   
