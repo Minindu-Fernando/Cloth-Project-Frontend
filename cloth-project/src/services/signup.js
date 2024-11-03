@@ -1,6 +1,6 @@
 export const registerCustomer = async (customerData) => {
     try {
-      const response = await fetch('http://localhost:8080/customer', {
+      const response = await fetch('http://localhost:8080/customer/add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(customerData),

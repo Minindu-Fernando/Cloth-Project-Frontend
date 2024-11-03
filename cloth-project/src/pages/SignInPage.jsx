@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 import "./signinpage.css";
 import {
   MDBBtn,
@@ -11,25 +12,28 @@ import {
   MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
-import AuthService from "../services/auth"; // Import AuthService for login
+import AuthService from "../services/auth"; // Import the AuthService
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
-  const onLoginClick = async () => {
+  const handleLogin = async () => {
     try {
       const response = await AuthService.login(email, password);
-      if (response.status === 200) {
-        // Store the token in local storage
+      if (response.data) {
+        // Save the token in local storage
         localStorage.setItem("token", response.data.token);
-        setMessage("Login successful!");
-        // Redirect or take further action
+        
+        // Navigate to the /homePage
+        setMessage("You are Logging Successfully!");
+        alert("You are logging success!");
+        navigate("/homePage");
       }
     } catch (error) {
-      setMessage("Invalid email or password.");
-      console.error("Login error:", error);
+      setMessage("Invalid email or password. Please try again.");
     }
   };
 
@@ -76,9 +80,16 @@ export default function SignInPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <MDBBtn id="btn-login" className="mb-4 px-5" color="dark" size="lg" onClick={onLoginClick}>
+              <MDBBtn
+                id="btn-login"
+                className="mb-4 px-5"
+                color="dark"
+                size="lg"
+                onClick={handleLogin} // Trigger the login function
+              >
                 Login
               </MDBBtn>
+              {message && <p className="text-danger text-center">{message}</p>}
               <a className="small text-muted" href="#!">
                 Forgot password?
               </a>
@@ -88,7 +99,6 @@ export default function SignInPage() {
                   Register here
                 </a>
               </p>
-              {message && <p className="text-danger text-center">{message}</p>}
               <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
                   Terms of use.
