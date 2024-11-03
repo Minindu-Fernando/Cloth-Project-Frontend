@@ -1,4 +1,3 @@
-// SignInPage.jsx
 import React, { useState } from "react";
 import "./signinpage.css";
 import {
@@ -12,16 +11,26 @@ import {
   MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
-import { deleteCustomer } from "../services/signin"; // Import the deleteCustomer function
+import AuthService from "../services/auth"; // Import AuthService for login
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const onDeleteClick = async () => {
-    const result = await deleteCustomer(email, password);
-    setMessage(result.message);
+  const onLoginClick = async () => {
+    try {
+      const response = await AuthService.login(email, password);
+      if (response.status === 200) {
+        // Store the token in local storage
+        localStorage.setItem("token", response.data.token);
+        setMessage("Login successful!");
+        // Redirect or take further action
+      }
+    } catch (error) {
+      setMessage("Invalid email or password.");
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -67,7 +76,7 @@ export default function SignInPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <MDBBtn className="mb-4 px-5" color="dark" size="lg">
+              <MDBBtn id="btn-login" className="mb-4 px-5" color="dark" size="lg" onClick={onLoginClick}>
                 Login
               </MDBBtn>
               <a className="small text-muted" href="#!">
@@ -78,17 +87,6 @@ export default function SignInPage() {
                 <a href="/signup" style={{ color: "#393f81" }}>
                   Register here
                 </a>
-              </p>
-              <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                Do you want to update or delete your account?
-                <div className="d-flex justify-content-center mb-2" style={{ marginTop: "20px" }}>
-                  <MDBBtn color="dark" size="md" className="me-2" id="btn-update">
-                    Update
-                  </MDBBtn>
-                  <MDBBtn color="dark" size="md" className="me-2" id="btn-delete" onClick={onDeleteClick}>
-                    Delete
-                  </MDBBtn>
-                </div>
               </p>
               {message && <p className="text-danger text-center">{message}</p>}
               <div className="d-flex flex-row justify-content-start">
