@@ -12,3 +12,10 @@ const AuthService = {
 };
 
 export default AuthService;
+
+export const deleteCustomer = async (email, password) => {
+    const response = await axios.delete("/delete-customer", {
+        data: { email, password },
+    });
+    return response;
+};

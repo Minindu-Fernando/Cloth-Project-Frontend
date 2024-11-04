@@ -13,6 +13,8 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 import AuthService from "../services/auth"; // Import the AuthService
+import { deleteCustomer } from "../services/auth"; // Import the delete function
+
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -36,6 +38,15 @@ export default function SignInPage() {
       setMessage("Invalid email or password. Please try again.");
     }
   };
+
+  const onDeleteClick = async () => {
+    try {
+        const response = await deleteCustomer(email, password);
+        setMessage(response.data); // Display the success message
+    } catch (error) {
+        setMessage("Failed to delete customer. Invalid email or password.");
+    }
+};
 
   return (
     <MDBContainer className="my-5">
@@ -99,6 +110,23 @@ export default function SignInPage() {
                   Register here
                 </a>
               </p>
+              
+
+              <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+                Do you want to update or delete your account?
+                <div className="d-flex justify-content-center mb-2" style={{ marginTop: "20px" }}>
+                  <MDBBtn color="warning" size="md" className="me-2" id="btn-update">
+                    Update
+                  </MDBBtn>
+                  <MDBBtn color="danger" size="md" className="me-2" id="btn-delete" onClick={onDeleteClick}>
+                    Delete
+                  </MDBBtn>
+                </div>
+              </p>
+
+
+
+
               <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
                   Terms of use.
