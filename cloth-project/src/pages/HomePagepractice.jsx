@@ -89,7 +89,7 @@ export default function HomePagepractice() {
                   className="d-flex justify-content-center align-items-center"
                 >
                   <NewArrivals
-                    image={Arrival1}
+                    image={product.image}
                     title={product.productName}
                     text={product.description}
                     price={product.price}

@@ -1,0 +1,64 @@
+.category-page {
+    font-family: Arial, sans-serif;
+   }
+  
+  .sticky-header {
+    position: sticky; /* Makes the element sticky */
+    top: 0; /* Keeps it at the top of the viewport */
+    z-index: 1000; /* Ensures the header stays above other content */
+    background-color: white; /* Adjust the background color as needed */
+    padding: 10px; /* Add some padding for better spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+    margin-bottom: 2%;
+  }
+  
+  .breadcrumbs {
+    margin: 15px 0;
+  }
+  
+  .category-banner {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .category-banner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .filters-and-sorting {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .pagination {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .additional-content {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
