@@ -1,6 +1,8 @@
+// src/components/AddProduct.jsx
+
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Form, Button, Container } from 'react-bootstrap';
+import { addProduct } from '../../services/addProduct'; // Adjust the import path as needed
 
 const AddProduct = () => {
   const [productName, setProductName] = useState('');
@@ -14,25 +16,19 @@ const AddProduct = () => {
     setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const product = { productName, description, category, quantity, price };
-    const formData = new FormData();
-    formData.append('product', JSON.stringify(product));
-    formData.append('image', image);
 
-    axios.post('http://localhost:8080/product', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .then(response => {
-      console.log('Product added successfully:', response.data);
-    })
-    .catch(error => {
+    try {
+      const response = await addProduct(product, image);
+      console.log('Product added successfully:', response);
+      // Add any success handling logic, like showing a success message
+    } catch (error) {
       console.error('Error adding product:', error);
-    });
+      // Add any error handling logic, like showing an error message
+    }
   };
 
   return (

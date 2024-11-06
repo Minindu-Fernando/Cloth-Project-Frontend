@@ -1,6 +1,7 @@
+// src/components/Category.jsx
+
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Col,
@@ -10,33 +11,34 @@ import {
   Row,
   Dropdown,
 } from "react-bootstrap";
+import { getAllProducts } from "../services/category"; // Adjust the import path as needed
 import "./category.css";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/products")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((error) => {
+    const fetchProducts = async () => {
+      try {
+        const productData = await getAllProducts();
+        setProducts(productData);
+      } catch (error) {
         console.error("Error fetching products:", error);
-      });
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   // Function to handle product click
   const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`); // Navigate to the ProductDetails page
+    navigate(`/product/${productId}`);
   };
 
   return (
     <div className="category-page">
       <Container fluid>
-        {/* Your existing header and sidebar code */}
-
         <header className="sticky-header">
           <Form className="mx-auto d-flex search-form">
             <FormControl
@@ -54,16 +56,13 @@ const Category = () => {
         </header>
         <Row>
           <Col md={3} className="p-4 border rounded">
-            {/* Breadcrumbs */}
             <div className="breadcrumbs">
               <a href="/">Home</a> / <span>Category</span>
             </div>
-            {/* Filters and Sorting */}
             <div className="filters-and-sorting">
-              {/* Sidebar filters and sorting options here */}
               <button>Sort by Price</button>
             </div>
-            .
+            {/* Your Dropdown components */}
             <div>
               <Dropdown>
                 <Dropdown.Toggle
@@ -73,94 +72,24 @@ const Category = () => {
                 >
                   Category
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Men</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Women</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Kids</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Baby</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-            .
-            <div>
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="outline-success"
-                  id="dropdown-basic"
-                  style={{ width: "100%" }}
-                >
-                 Size
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>{" "}
-            </div>
-            .
-            <div>
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="outline-success"
-                  id="dropdown-basic"
-                  style={{ width: "100%" }}
-                >
-                  Price
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>{" "}
-            </div>
-            .
-            <div>
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="outline-success"
-                  id="dropdown-basic"
-                  style={{ width: "100%" }}
-                >
-                  All Item
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>{" "}
-            </div>
+            {/* Repeat Dropdown components as needed */}
           </Col>
           <Col>
-            {/* Product Grid */}
             <div className="product-grid">
               {products.map((product) => (
                 <div
                   className="product-card"
                   key={product.productId}
                   onClick={() => handleProductClick(product.productId)}
-                  style={{ cursor: "pointer" }} // Add pointer cursor for better UX
+                  style={{ cursor: "pointer" }}
                 >
                   <img src={product.image} alt={product.productName} />
                   <h6>
@@ -176,8 +105,6 @@ const Category = () => {
           </Col>
         </Row>
       </Container>
-
-      {/* Your existing banner, pagination, and additional content */}
     </div>
   );
 };
