@@ -96,8 +96,8 @@ const Category = () => {
                     <b>{product.productName}</b>
                   </h6>
                   <p>{product.description}</p>
-                  <p>${product.price}</p>
-                  <p>Stock: {product.quantity}</p>
+                  <p>Rs{product.price}</p>
+                  <p>Available: {product.quantity}</p>
                   <button className="btn btn-danger">Add to Cart</button>
                 </div>
               ))}

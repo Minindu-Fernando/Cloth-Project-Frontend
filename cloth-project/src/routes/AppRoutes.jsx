@@ -7,6 +7,8 @@ import HomePagepractice from '../pages/HomePagepractice';
 import Category from '../pages/Category';
 import AddProduct from '../assets/components/AddProduct';
 import ProductDetails from '../assets/components/ProductDetails';
+import AdminPage from '../pages/AdminPage';
+import ViewAllProduct from '../pages/ViewAllProduct';
 
 export default function AppRoutes() {
     return (
@@ -19,6 +21,9 @@ export default function AppRoutes() {
             <Route path="/category" element={<Category/>} />
             <Route path="/addProducts" element={<AddProduct/>} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/admin" element={<AdminPage/>} />
+            <Route path="/view-all-products" element={<ViewAllProduct/>} />
+
           </Routes>
         </Router>
       );
