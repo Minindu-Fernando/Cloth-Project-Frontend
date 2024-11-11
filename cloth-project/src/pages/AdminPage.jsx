@@ -56,7 +56,7 @@ export default function AdminPage() {
           <AdminCardComponent
             imageSrc={NewArrivals}
             overlayText="Add New Arrivals"
-            link="/add-new-arrivals"
+            link="/update-product"
           />
         </Col>
         <Col className="d-flex justify-content-center align-items-center">

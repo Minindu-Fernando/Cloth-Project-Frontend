@@ -8,3 +8,24 @@ export const deleteProductById = async (productId) => {
       throw error;
     }
   };
+
+  export const updateProductById = async (productId, productData) => {
+    const formData = new FormData();
+    formData.append("productJson", JSON.stringify({
+        productName: productData.productName,
+        category: productData.category,
+        description: productData.description,
+        quantity: productData.quantity,
+        price: productData.price,
+    }));
+
+    if (productData.image instanceof File) {
+        formData.append("image", productData.image);
+    }
+
+    return await axios.put(`http://localhost:8080/update-product-by/${productId}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+};
