@@ -12,6 +12,7 @@ import {
   Dropdown,
 } from 'react-bootstrap';
 import { getProductById } from '../../services/productDetails'; // Adjust the import path as needed
+import LineComponent from './LineComponent';
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the product ID from the URL
@@ -35,8 +36,9 @@ const ProductDetails = () => {
   }
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
+      <LineComponent text="ADD TO YOUR CART" />
         <Col md={6}>
           <img src={product.image} alt={product.productName} />
         </Col>

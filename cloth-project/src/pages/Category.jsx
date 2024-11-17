@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 import { getAllProducts } from "../services/category"; // Adjust the import path as needed
 import "./category.css";
+import LineComponent from "../assets/components/LineComponent";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
@@ -54,14 +55,13 @@ const Category = () => {
             <a href="/women">Women</a>
           </nav>
         </header>
+        <LineComponent text="SHOP BY CATEGORY" />
         <Row>
           <Col md={3} className="p-4 border rounded">
             <div className="breadcrumbs">
-              <a href="/">Home</a> / <span>Category</span>
+              <a href="/"><b>Home</b></a>
             </div>
-            <div className="filters-and-sorting">
-              <button>Sort by Price</button>
-            </div>
+
             {/* Your Dropdown components */}
             <div>
               <Dropdown>
@@ -80,6 +80,24 @@ const Category = () => {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
+            <div>
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="outline-success"
+                  id="dropdown-basic"
+                  style={{ width: "100%" }}
+                >
+                  Price
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Men</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Women</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Kids</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Baby</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+
             {/* Repeat Dropdown components as needed */}
           </Col>
           <Col>

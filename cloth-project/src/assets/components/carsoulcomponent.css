@@ -1,5 +1,6 @@
 .custom-carousel .carousel-item img {
-    height: 600px; /* Set your desired height */
-    object-fit: cover; /* This will crop the image while keeping the aspect ratio */
+    height: 600px; 
+    /* Set your desired height */
+    object-fit:cover; /* This will crop the image while keeping the aspect ratio */
     margin-bottom: 60px;
 }

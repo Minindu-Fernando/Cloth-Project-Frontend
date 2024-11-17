@@ -6,7 +6,7 @@ import './mainnavbarcomponent.css';
 export default function MainNavbarComponent() {
   return (
     <Navbar bg="light" expand="lg" className="navbar-custom">
-      <Navbar.Brand href="#home">CLOTHIFY</Navbar.Brand>
+      <Navbar.Brand href="#home" style={{fontFamily:'cursive', fontSize:'40px'}}><b>CLOTHIFY</b></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto d-flex align-items-center">
