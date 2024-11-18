@@ -10,6 +10,7 @@ import ProductDetails from '../assets/components/ProductDetails';
 import AdminPage from '../pages/AdminPage';
 import ViewAllProduct from '../pages/ViewAllProduct';
 import UpdateProduct from '../assets/components/UpdateProduct';
+import ProductsPage from '../pages/ProductsPage';
 
 export default function AppRoutes() {
     return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
             <Route path="/admin" element={<AdminPage/>} />
             <Route path="/view-all-products" element={<ViewAllProduct/>} />
             <Route path="/update-product/:id" element={<UpdateProduct />} />
+            <Route path="/products/search" element={<ProductsPage />} /> {/* Add this route */}
 
           </Routes>
         </Router>

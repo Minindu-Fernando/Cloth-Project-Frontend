@@ -1,0 +1,90 @@
+/* Spinner style */
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+/* Container for product grid */
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto columns with minimum width of 250px */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Styling for each product card */
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-card h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .product-card p {
+    color: #555;
+    margin: 8px 0;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px); /* Hover effect */
+  }
+  
+  .product-card button {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .btn-danger {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .filters {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .filters h3 {
+    margin-bottom: 10px;
+  }
+  
+  .price-slider label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  button.btn-secondary {
+    margin-top: 10px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
