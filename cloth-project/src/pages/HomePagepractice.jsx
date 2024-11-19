@@ -21,6 +21,15 @@ import { fetchProducts } from "../services/ps";
 
 export default function HomePagepractice() {
   const [products, setProducts] = useState([]);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    // Retrieve the email from localStorage
+    const storedEmail = localStorage.getItem("email");
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
 
   useEffect(() => {
     fetchProducts()

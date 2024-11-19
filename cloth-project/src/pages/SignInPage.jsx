@@ -26,9 +26,10 @@ export default function SignInPage() {
     try {
       const response = await AuthService.login(email, password);
       if (response.data) {
-        // Save the token in local storage
+        // Save the token and email in local storage
         localStorage.setItem("token", response.data.token);
-        
+        localStorage.setItem("email", email); // Store the email
+  
         // Navigate to the /homePage
         setMessage("You are Logging Successfully!");
         alert("You are logging success!");

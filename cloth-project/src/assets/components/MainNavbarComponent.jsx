@@ -23,6 +23,7 @@ export default function MainNavbarComponent() {
         <Nav className="ms-auto">
           <Nav.Link href="/signup">Sign Up</Nav.Link>
           <Nav.Link href="/signin">Sign In</Nav.Link>
+          <Nav.Link href="/logout">Log Out</Nav.Link>
           <Nav.Link href="/admin" className="cart-icon">
             <FaShoppingCart />
           </Nav.Link>
