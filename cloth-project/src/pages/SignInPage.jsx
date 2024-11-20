@@ -136,6 +136,10 @@ export default function SignInPage() {
                   Privacy policy
                 </a>
               </div>
+              <br></br>
+              <a href="/signup" style={{ color: "#393f81" }}>
+                  If you are Admin sign in here...
+                </a>
             </MDBCardBody>
           </MDBCol>
         </MDBRow>

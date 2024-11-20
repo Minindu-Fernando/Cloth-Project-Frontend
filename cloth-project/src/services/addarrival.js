@@ -7,7 +7,7 @@ export const addProduct = async (product, image) => {
   formData.append('image', image);
 
   try {
-    const response = await axios.post('http://localhost:8080/product', formData, {
+    const response = await axios.post('http://localhost:8080/arrival/product', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

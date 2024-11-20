@@ -11,6 +11,12 @@ import AdminPage from '../pages/AdminPage';
 import ViewAllProduct from '../pages/ViewAllProduct';
 import UpdateProduct from '../assets/components/UpdateProduct';
 import ProductsPage from '../pages/ProductsPage';
+import Cart from '../assets/components/Cart';
+import SignUpAdmin from '../assets/components/SignUpAdmin';
+import AdminSignIn from '../assets/components/AdminSignIn';
+import AddNewArrival from '../assets/components/AddNewArrival';
+import ViewAllNewArrival from '../assets/components/ViewAllNewArrival';
+import UpdateNewArrival from '../assets/components/UpdateNewArrival';
 
 export default function AppRoutes() {
     return (
@@ -22,11 +28,17 @@ export default function AppRoutes() {
             <Route path="/homePage" element={<HomePagepractice/>} />
             <Route path="/category" element={<Category/>} />
             <Route path="/addProducts" element={<AddProduct/>} />
+            <Route path="/add-new-arrival" element={<AddNewArrival/>} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/admin" element={<AdminPage/>} />
             <Route path="/view-all-products" element={<ViewAllProduct/>} />
+            <Route path="/view-all-new-arrival" element={<ViewAllNewArrival/>} />
             <Route path="/update-product/:id" element={<UpdateProduct />} />
+            <Route path="/update-new-arrival/:id" element={<UpdateNewArrival />} />
             <Route path="/products/search" element={<ProductsPage />} /> {/* Add this route */}
+            <Route path="/cart" element={<Cart/>} />
+            <Route path="/admin-signup" element={<SignUpAdmin/>} />
+            <Route path="/admin-signin" element={<AdminSignIn/>} />
 
           </Routes>
         </Router>

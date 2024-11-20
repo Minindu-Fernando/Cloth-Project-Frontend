@@ -15,11 +15,12 @@ export const addProductToCart = async (cartItem) => {
 
 // Function to fetch the cart items by email
 export const getCartByEmail = async (email) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}?email=${email}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching cart details:", error);
-    throw error;
-  }
-};
+    try {
+      const response = await axios.get(`${API_BASE_URL}/${email}`); // Use path variable
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching cart details:", error);
+      throw error;
+    }
+  };
+  

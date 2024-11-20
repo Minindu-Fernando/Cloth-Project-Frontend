@@ -27,7 +27,7 @@ const NavbarComponent = () => {
               <Row>
                 <Col>
                 <NavDropdown.Header><h6>CLOTHING</h6></NavDropdown.Header>
-                  <NavDropdown.Item href="/addToCart">
+                  <NavDropdown.Item href="/cart">
                     All Clothing
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
