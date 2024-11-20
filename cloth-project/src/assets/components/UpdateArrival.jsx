@@ -4,7 +4,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { updateProductById } from '../../services/viewAllNewArrival';
 
-export default function UpdateNewArrival() {
+export default function UpdateArrival() {
     const { state } = useLocation();
     const navigate = useNavigate();
     const [product, setProduct] = useState(state?.product || {});
@@ -104,3 +104,4 @@ export default function UpdateNewArrival() {
         </Container>
     );
 }
+

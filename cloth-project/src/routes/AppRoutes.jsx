@@ -16,7 +16,7 @@ import SignUpAdmin from '../assets/components/SignUpAdmin';
 import AdminSignIn from '../assets/components/AdminSignIn';
 import AddNewArrival from '../assets/components/AddNewArrival';
 import ViewAllNewArrival from '../assets/components/ViewAllNewArrival';
-import UpdateNewArrival from '../assets/components/UpdateNewArrival';
+import UpdateArrival from '../assets/components/UpdateArrival';
 
 export default function AppRoutes() {
     return (
@@ -33,8 +33,8 @@ export default function AppRoutes() {
             <Route path="/admin" element={<AdminPage/>} />
             <Route path="/view-all-products" element={<ViewAllProduct/>} />
             <Route path="/view-all-new-arrival" element={<ViewAllNewArrival/>} />
-            <Route path="/update-product/:id" element={<UpdateProduct />} />
-            <Route path="/update-new-arrival/:id" element={<UpdateNewArrival />} />
+            <Route path="/update-product/:id" element={<UpdateProduct/>} />
+            <Route path="/update-new-arrival/:id" element={<UpdateArrival/>} />
             <Route path="/products/search" element={<ProductsPage />} /> {/* Add this route */}
             <Route path="/cart" element={<Cart/>} />
             <Route path="/admin-signup" element={<SignUpAdmin/>} />
