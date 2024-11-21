@@ -17,6 +17,7 @@ import AdminSignIn from '../assets/components/AdminSignIn';
 import AddNewArrival from '../assets/components/AddNewArrival';
 import ViewAllNewArrival from '../assets/components/ViewAllNewArrival';
 import UpdateArrival from '../assets/components/UpdateArrival';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function AppRoutes() {
     return (
@@ -39,6 +40,9 @@ export default function AppRoutes() {
             <Route path="/cart" element={<Cart/>} />
             <Route path="/admin-signup" element={<SignUpAdmin/>} />
             <Route path="/admin-signin" element={<AdminSignIn/>} />
+
+                    {/* Protected Routes */}
+        <Route path="/cart" element={ <ProtectedRoute><Cart /></ProtectedRoute> } />
 
           </Routes>
         </Router>

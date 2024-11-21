@@ -35,8 +35,9 @@ export default function ViewAllProduct() {
     };
 
     return (
-        <Container fluid>
-            <Row>
+
+        <Container fluid >
+            <Row >
                 <div className="product-grid">
                     {products.map((product) => (
                         <div className="product-card" key={product.productId}>

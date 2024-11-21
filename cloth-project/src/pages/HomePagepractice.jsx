@@ -16,13 +16,14 @@ import Arrival7 from "../assets/img/arrival7.webp";
 import Arrival8 from "../assets/img/arrival8.webp";
 import CarsoulComponent from "../assets/components/CarsoulComponent";
 import FooterComponent from "../assets/components/FooterComponent";
-import MainNavbarComponent from "../assets/components/MainNavbarComponent";
 import { fetchProducts } from "../services/ps";
+import DefaultNavbar from "../assets/components/DefaultNavbar";
+
 
 export default function HomePagepractice() {
   const [products, setProducts] = useState([]);
   const [email, setEmail] = useState("");
-
+  
   useEffect(() => {
     // Retrieve the email from localStorage
     const storedEmail = localStorage.getItem("email");
@@ -30,6 +31,7 @@ export default function HomePagepractice() {
       setEmail(storedEmail);
     }
   }, []);
+
 
   useEffect(() => {
     fetchProducts()
@@ -40,8 +42,7 @@ export default function HomePagepractice() {
   return (
     <div>
       <div>
-        <Row>
-          <MainNavbarComponent />
+        <Row><DefaultNavbar/>
         </Row>
         <Row className="mb-4">
           <NavbarComponent />

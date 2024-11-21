@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './shopbycategory.css';
 import category1 from '../img/category1.png';
 import category2 from '../img/category2.png';
-import category3 from '../img/category3.png';
-import category4 from '../img/category4.png';
+import category4 from '../img/category3.png';
+import category3 from '../img/category4.png';
 
 export default function ShopbyCategory() {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function ShopbyCategory() {
         <div className="column">
           <div
             className="image-container"
-            onClick={() => handleCategoryClick('Men')}
+            onClick={() => handleCategoryClick('Mens')}
           >
             <img src={category4} alt="Men Clothes" className="category-image" />
             <div className="overlay"></div>

@@ -20,9 +20,18 @@ import MainNavbarComponent from "../assets/components/MainNavbarComponent";
 // import { fetchProducts } from "../services/productService";
 
 export default function HomePage() {
+
+  const links = [
+    { href: '/signup', text: 'Sign Up' },
+    { href: '/signin', text: 'Sign In' },
+  ];
   return (
    <div>
-    <Row><MainNavbarComponent/></Row>
+    <Row>
+
+    <MainNavbarComponent/>
+
+    </Row>
       <Row className="mb-4">
         <NavbarComponent />
       </Row>

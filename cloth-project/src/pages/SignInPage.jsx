@@ -97,6 +97,7 @@ export default function SignInPage() {
                 className="mb-4 px-5"
                 color="dark"
                 size="lg"
+                style={{width:'100%',height:'40px'}}
                 onClick={handleLogin} // Trigger the login function
               >
                 Login
@@ -113,22 +114,18 @@ export default function SignInPage() {
               </p>
               
 
-              <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+              <p style={{ color: "#393f81" }}>
                 Do you want to update or delete your account?
-                <div className="d-flex justify-content-center mb-2" style={{ marginTop: "20px" }}>
-                  <MDBBtn color="warning" size="md" className="me-2" id="btn-update">
+              </p>
+<div>
+<MDBBtn color="warning" size="md" className="me-2" id="btn-update" style={{width:'100%',height:'40px'}}>
                     Update
                   </MDBBtn>
-                  <MDBBtn color="danger" size="md" className="me-2" id="btn-delete" onClick={onDeleteClick}>
+                  <MDBBtn color="danger" size="md" className="me-2" onClick={onDeleteClick}  style={{width:'100%',height:'40px'}}>
                     Delete
                   </MDBBtn>
-                </div>
-              </p>
-
-
-
-
-              <div className="d-flex flex-row justify-content-start">
+</div>
+              <div className="d-flex flex-row justify-content-start" style={{marginTop:'1%'}}>
                 <a href="#!" className="small text-muted me-1">
                   Terms of use.
                 </a>
@@ -137,7 +134,7 @@ export default function SignInPage() {
                 </a>
               </div>
               <br></br>
-              <a href="/signup" style={{ color: "#393f81" }}>
+              <a href="/admin-signin" style={{ color: "#393f81" }}>
                   If you are Admin sign in here...
                 </a>
             </MDBCardBody>

@@ -152,11 +152,12 @@ export default function SignUpPage() {
           <MDBBtn
             className="mb-4 w-100 gradient-custom-4"
             size="lg"
+            style={{width:'100%',height:'40px'}}
             onClick={handleSubmit}
           >
             Register
           </MDBBtn>
-          <a href="/admin-signup" style={{ color: "#393f81" }}>
+          <a href="/admin-signin" style={{ color: "#393f81" }}>
             If you are Admin sign up here...
           </a>
         </MDBCardBody>

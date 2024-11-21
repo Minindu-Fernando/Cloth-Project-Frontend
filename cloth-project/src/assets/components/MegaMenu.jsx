@@ -3,7 +3,6 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import "./megamenu.css";
 import AddProduct from "../../assets/img/addProduct.png";
 
-
 export default function MegaMenu() {
   const [activeMenu, setActiveMenu] = useState(null);
 
@@ -21,9 +20,9 @@ export default function MegaMenu() {
         return (
           <div className="mega-menu">
             <div className="mega-menu-content">
-            <div className="image" style={{width:'200px'}}>
-            <img src={AddProduct} alt="Category Image" />
-            </div>
+              <div className="image" style={{ width: "200px" }}>
+                <img src={AddProduct} alt="Category Image" />
+              </div>
               <div>
                 <h5>CLOTHING</h5>
                 <ul>
@@ -47,13 +46,13 @@ export default function MegaMenu() {
                   <li>All Innerwear</li>
                   <li>Boxers & Briefs</li>
                   <li>Socks</li>
-                  <li>Undershirts</li>                  
+                  <li>Undershirts</li>
                 </ul>
               </div>
               <div>
                 <h5>ACCESSORIES</h5>
                 <ul>
-                <li>All Accessories</li>
+                  <li>All Accessories</li>
                   <li>Footwear</li>
                   <li>Hats & Caps</li>
                   <li>Belt</li>
@@ -78,7 +77,7 @@ export default function MegaMenu() {
               <div>
                 <h5>ACCESSORIES</h5>
                 <ul>
-                <li>All Accessories</li>
+                  <li>All Accessories</li>
                   <li>Footwear</li>
                   <li>Hats & Caps</li>
                   <li>Belt</li>
@@ -149,7 +148,11 @@ export default function MegaMenu() {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar
+        expand="lg"
+        className="nav-bar"
+        style={{backgroundColor: "#260758" }}
+      >
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

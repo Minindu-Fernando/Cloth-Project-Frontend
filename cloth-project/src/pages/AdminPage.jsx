@@ -13,20 +13,22 @@ import Settings from "../assets/img/addArrival.png";
 
 import FooterComponent from "../assets/components/FooterComponent";
 import NavbarComponent from "../assets/components/NavbarComponent";
-import MainNavbarComponent from "../assets/components/MainNavbarComponent";
 import MainImage from "../assets/img/Main.png";
+import DefaultNavbar from "../assets/components/DefaultNavbar";
 
 export default function AdminPage() {
   return (
     <Container fluid>
       {/* Row 1: Navbar components */}
       <Row>
-        <MainNavbarComponent />
+        <DefaultNavbar />
         <NavbarComponent />
       </Row>
 
       {/* Row 2: Main Image */}
-      <Row className="text-center" style={{ marginTop:'3%'}}> {/* Center the image in this row */}
+      <Row className="text-center" style={{ marginTop: "3%" }}>
+        {" "}
+        {/* Center the image in this row */}
         <Col className="d-flex justify-content-center align-items-center">
           <img
             src={MainImage} // Main banner image path
@@ -37,9 +39,9 @@ export default function AdminPage() {
       </Row>
 
       {/* Row 3: First set of Admin Cards */}
-      <Row style={{marginBottom:'6%', marginTop:'6%'}}>
-      <Col className="d-flex justify-content-center align-items-center">
-      <AdminCardComponent
+      <Row style={{ marginBottom: "6%", marginTop: "6%" }}>
+        <Col className="d-flex justify-content-center align-items-center">
+          <AdminCardComponent
             imageSrc={AddProduct}
             overlayText="Add Product"
             link="/addProducts"
@@ -70,8 +72,8 @@ export default function AdminPage() {
 
       {/* Row 4: Second set of Admin Cards */}
       <Row>
-      <Col className="d-flex justify-content-center align-items-center">
-      <AdminCardComponent
+        <Col className="d-flex justify-content-center align-items-center">
+          <AdminCardComponent
             imageSrc={AddDiscount}
             overlayText="Add Discount"
             link="/add-discount"
