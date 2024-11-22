@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { updateProductById } from '../../services/viewAllProducts';
+import { updateProductById } from '../../services/productService';
 
 export default function UpdateProduct() {
     const { state } = useLocation();

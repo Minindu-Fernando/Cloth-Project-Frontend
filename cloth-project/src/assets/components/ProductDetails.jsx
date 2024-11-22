@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
-import { getProductById } from "../../services/productDetails";
+import { getProductById } from "../../services/productService";
 import { addProductToCart } from "../../services/cartService";
 import LineComponent from "./LineComponent";
 import "./productdetails.css";

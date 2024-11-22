@@ -21,3 +21,27 @@
     font-size: 24px; /* Adjust text size as needed */
   }
   
+
+  .position-relative {
+    position: relative;
+  }
+  
+  .blurred-rectangle {
+  position: absolute;
+  top: 80%; /* Adjust rectangle position */
+  width: 100%; /* Rectangle width */
+  height: 25%; /* Rectangle height */
+  background-color: rgba(15, 2, 88, 0.637); /* Initial background color */
+  backdrop-filter: blur(1%); /* Apply blur effect */
+  border-radius: 0px; /* Optional rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  .saree-text{
+    font-size: 34px;
+    font-weight: bold;
+    color: #fefeff;
+    font-family:'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }

@@ -11,7 +11,7 @@ import {
   Row,
   Dropdown,
 } from "react-bootstrap";
-import { getAllProducts } from "../services/category"; // Adjust the import path as needed
+import { getAllProducts } from "../services/productService"; // Adjust the import path as needed
 import "./category.css";
 import LineComponent from "../assets/components/LineComponent";
 
@@ -87,13 +87,14 @@ const Category = () => {
                   id="dropdown-basic"
                   style={{ width: "100%" }}
                 >
-                  Price
+                  Size
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Men</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Women</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Kids</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Baby</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Large</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Medium</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Small</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Xtra Small</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Xtra Large</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>

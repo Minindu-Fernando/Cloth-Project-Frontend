@@ -1,9 +1,8 @@
 
-import { getAllProducts } from "../../services/viewAllNewArrival";
 import { Container, Row, Button } from 'react-bootstrap';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteProductById } from "../../services/viewAllNewArrival";
+import { deleteProductById,getAllProducts } from "../../services/arrivalService";
 import LineComponent from "./LineComponent";
 
 export default function ViewAllNewArrival() {

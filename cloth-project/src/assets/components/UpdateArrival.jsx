@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { updateProductById } from '../../services/viewAllNewArrival';
+import { updateProductById } from '../../services/arrivalService';
 
 export default function UpdateArrival() {
     const { state } = useLocation();

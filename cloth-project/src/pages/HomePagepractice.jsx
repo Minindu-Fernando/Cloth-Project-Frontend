@@ -16,8 +16,9 @@ import Arrival7 from "../assets/img/arrival7.webp";
 import Arrival8 from "../assets/img/arrival8.webp";
 import CarsoulComponent from "../assets/components/CarsoulComponent";
 import FooterComponent from "../assets/components/FooterComponent";
-import { fetchProducts } from "../services/ps";
+import { getAllProducts } from "../services/arrivalService";
 import DefaultNavbar from "../assets/components/DefaultNavbar";
+import MegaMenu from "../assets/components/MegaMenu";
 
 
 export default function HomePagepractice() {
@@ -34,18 +35,17 @@ export default function HomePagepractice() {
 
 
   useEffect(() => {
-    fetchProducts()
+    getAllProducts()
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error in HomePage:", error));
   }, []);
 
   return (
-    <div>
+    <div style={{marginTop:'6%'}}>
       <div>
-        <Row><DefaultNavbar/>
-        </Row>
+      <DefaultNavbar/>
         <Row className="mb-4">
-          <NavbarComponent />
+        <MegaMenu/>
         </Row>
         <Row>
           <CarsoulComponent />

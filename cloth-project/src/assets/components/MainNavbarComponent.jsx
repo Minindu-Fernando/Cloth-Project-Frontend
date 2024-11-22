@@ -29,7 +29,10 @@ export default function MainNavbarComponent() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto d-flex align-items-center">
-          <Form className="mx-auto d-flex search-form" onSubmit={(e) => e.preventDefault()}>
+          <Form
+            className="mx-auto d-flex search-form"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <FormControl
               type="text"
               placeholder="Search"

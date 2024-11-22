@@ -10,7 +10,7 @@
   
   /* Mega Menu Styling */
   .mega-menu {
-    position: fixed;
+    position: absolute;
     top: '10%'; /* Adjust based on your Navbar height */
     left: 50%;
     transform: translateX(-50%);
@@ -24,7 +24,7 @@
   
   .mega-menu-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   
   .mega-menu-content div {
@@ -40,17 +40,20 @@
   .mega-menu-content ul {
     list-style: none;
     padding: 0;
+    width: 150px;
   }
   
   .mega-menu-content li {
     margin: 5px 0;
     font-size: 16px;
     color: #333;
+    transition: all 0.3s ease;
+
   }
   
   .mega-menu-content li:hover {
-    text-decoration: underline;
     cursor: pointer;
+    padding-left: 10px;
   }
 
   @media (max-width: 768px) {

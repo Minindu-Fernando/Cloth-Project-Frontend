@@ -17,30 +17,30 @@ import Arrival8 from "../assets/img/arrival8.webp";
 import CarsoulComponent from "../assets/components/CarsoulComponent";
 import FooterComponent from "../assets/components/FooterComponent";
 import MainNavbarComponent from "../assets/components/MainNavbarComponent";
+import MegaMenu from "../assets/components/MegaMenu";
+import CardComponent from "../assets/components/CardComponent";
 // import { fetchProducts } from "../services/productService";
+import Slide3 from "../assets/img/Gif.gif";
+import MyComponent from "../assets/components/MyComponent";
 
 export default function HomePage() {
-
   const links = [
-    { href: '/signup', text: 'Sign Up' },
-    { href: '/signin', text: 'Sign In' },
+    { href: "/signup", text: "Sign Up" },
+    { href: "/signin", text: "Sign In" },
   ];
   return (
-   <div>
-    <Row>
-
-    <MainNavbarComponent/>
-
-    </Row>
+    <div style={{ marginTop: "6%" }}>
+      <MainNavbarComponent />
       <Row className="mb-4">
-        <NavbarComponent />
+        <MegaMenu />
       </Row>
       <Row>
-        <CarsoulComponent/>
+        <CarsoulComponent />
       </Row>
 
       <Row className="mb-4">
-      <Col className="d-flex justify-content-center align-items-center">
+        <LineComponent text="FAMOUS THIS MONTH" />
+        <Col className="d-flex justify-content-center align-items-center">
           {" "}
           <NewArrivals
             image={Arrival1}
@@ -73,7 +73,6 @@ export default function HomePage() {
           />
         </Col>
       </Row>
-
       <Row className="mb-6">
         <LineComponent text="NEW ARRIVALS" />
 
@@ -112,7 +111,7 @@ export default function HomePage() {
       </Row>
 
       <Row className="new-arrivals">
-      <Col className="d-flex justify-content-center align-items-center">
+        <Col className="d-flex justify-content-center align-items-center">
           {" "}
           <NewArrivals
             image={Arrival5}
@@ -147,10 +146,56 @@ export default function HomePage() {
       </Row>
 
       <div className="my-3">
+        <img src={Slide3}></img>
         <LineComponent text="SHOP BY CATEGORY" />
-        <ShopbyCategory />
+        <ShopbyCategory  />
       </div>
-      <Row><FooterComponent/></Row>
+      <Row>
+        <Row className="mb-4 position-relative">
+          <LineComponent text="FAMOUS THIS MONTH" />
+          <Col
+            style={{ margin: "0%", padding: "0%" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <CardComponent image={Arrival1} />
+          </Col>
+          <Col
+            style={{ margin: "0%", padding: "0%" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <CardComponent image={Arrival2} />
+          </Col>
+          <Col
+            style={{ margin: "0%", padding: "0%" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <CardComponent image={Arrival3} />
+          </Col>
+          <Col
+            style={{ margin: "0%", padding: "0%" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <CardComponent image={Arrival1} />
+          </Col>
+          <Col
+            style={{ margin: "0%", padding: "0%" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <CardComponent image={Arrival1} />
+          </Col>
+
+          {/* Add the blurred rectangle as part of the row */}
+          <div className="blurred-rectangle">
+            <p style={{ margin: "0%", padding: "0%" }} className="saree-text">
+              Silk Sathin Saree
+            </p>
+            <p style={{ margin: "0%", padding: "0%" }} className="saree-text">
+              Collection
+            </p>
+          </div>
+        </Row>
+        <FooterComponent />
+      </Row>
     </div>
   );
 }

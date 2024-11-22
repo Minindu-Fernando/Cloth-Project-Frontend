@@ -7,7 +7,7 @@ import ViewProduct from "../assets/img/viewProduct.png";
 import NewArrivals from "../assets/img/newarrival.png";
 import ViewOrders from "../assets/img/order.png";
 import AddDiscount from "../assets/img/discount.png";
-import ViewCustomers from "../assets/img/customer.png";
+import ViewCustomers from "../assets/img/viewcustomers.png";
 import Reports from "../assets/img/reports.png";
 import Settings from "../assets/img/addArrival.png";
 
@@ -15,14 +15,15 @@ import FooterComponent from "../assets/components/FooterComponent";
 import NavbarComponent from "../assets/components/NavbarComponent";
 import MainImage from "../assets/img/Main.png";
 import DefaultNavbar from "../assets/components/DefaultNavbar";
+import MegaMenu from "../assets/components/MegaMenu";
 
 export default function AdminPage() {
   return (
     <Container fluid>
       {/* Row 1: Navbar components */}
       <Row>
-        <DefaultNavbar />
-        <NavbarComponent />
+        <DefaultNavbar/>
+        <MegaMenu/>
       </Row>
 
       {/* Row 2: Main Image */}
@@ -58,14 +59,14 @@ export default function AdminPage() {
           <AdminCardComponent
             imageSrc={NewArrivals}
             overlayText="Add New Arrivals"
-            link="/update-product"
+            link="/add-new-arrival"
           />
         </Col>
         <Col className="d-flex justify-content-center align-items-center">
           <AdminCardComponent
             imageSrc={ViewOrders}
-            overlayText="View Orders"
-            link="/view-orders"
+            overlayText="View New Arrival"
+            link="/view-all-new-arrival"
           />
         </Col>
       </Row>
@@ -81,7 +82,7 @@ export default function AdminPage() {
         </Col>
         <Col className="d-flex justify-content-center align-items-center">
           <AdminCardComponent
-            imageSrc={AddDiscount}
+            imageSrc={ViewCustomers}
             overlayText="View Customers"
             link="/view-customers"
           />

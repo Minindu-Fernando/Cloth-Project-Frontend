@@ -28,9 +28,12 @@
 /* New styles for overlay */
 .image-container {
   position: relative;
+  transition: transform 0.3s ease;
   width: 100%;
 }
-
+.image-container:hover {
+  transform: scale(1.05); /* Subtle zoom effect */
+}
 .overlay {
   position: absolute;
   top: 10%; /* Adjust rectangle position */
@@ -42,6 +45,7 @@
   border-radius: 0px; /* Optional rounded corners */
   border: 4px solid rgb(250, 250, 250); /* Add border */
   transition: background-color 0.3s ease; /* Smooth transition for background color */
+
 }
 
 /* Change color on hover */
@@ -49,5 +53,12 @@
   background-color: rgba(100, 100, 255, 0.7); /* New color on hover */
 }
 
-
-
+.overlay-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #230757;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 25%;
+}

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { addProduct } from '../../services/addProduct'; // Adjust the import path as needed
+import { addProduct } from '../../services/productService'; // Adjust the import path as needed
 
 const AddProduct = () => {
   const [productName, setProductName] = useState('');
@@ -24,9 +24,11 @@ const AddProduct = () => {
     try {
       const response = await addProduct(product, image);
       console.log('Product added successfully:', response);
+      alert("Product added successfully");
       // Add any success handling logic, like showing a success message
     } catch (error) {
       console.error('Error adding product:', error);
+      alert("Error adding product");
       // Add any error handling logic, like showing an error message
     }
   };
