@@ -8,6 +8,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import MegaMenu from '../assets/components/MegaMenu';
 import Pagination from 'react-bootstrap/Pagination';
 import LineComponent from '../assets/components/LineComponent';
+import MainNavbarComponent from '../assets/components/MainNavbarComponent';
+import DefaultNavbar from '../assets/components/DefaultNavbar';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -90,7 +92,10 @@ export default function ProductsPage() {
 
   return (
     <div className="products-page">
-      <MegaMenu />
+    <DefaultNavbar/>
+    <div style={{marginTop:'6%'}}>
+    <MegaMenu />
+    </div>
       <Container fluid>
         <LineComponent text={keyword} />
         <h1>Products for {keyword || 'All Categories'}</h1>

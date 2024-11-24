@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { getCartByEmail, updateCartItem, removeCartItem } from "../../services/cartService";
+import { placeOrder } from "../../services/orderService"; // Import order service
 import { Container, Table, Button } from "react-bootstrap";
 import "./cart.css";
+import DefaultNavbar from "./DefaultNavbar";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [email, setEmail] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [shippingAddress, setShippingAddress] = useState("");
+  const [paymentInformation, setPaymentInformation] = useState("");
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("email");
@@ -16,9 +20,13 @@ const Cart = () => {
       const fetchCart = async () => {
         try {
           const items = await getCartByEmail(storedEmail);
+          console.log(items);
+          
           const aggregatedItems = aggregateCartItems(items);
           setCartItems(aggregatedItems);
           calculateTotal(aggregatedItems);
+          console.log(aggregatedItems);
+          
         } catch (error) {
           console.error("Error fetching cart:", error);
         }
@@ -46,37 +54,58 @@ const Cart = () => {
     setTotalPrice(total);
   };
 
-  const handleQuantityChange = async (productId, newQuantity) => {
+  const handleQuantityChange = async (id, newQuantity) => {
     const updatedCart = cartItems.map((item) =>
-      item.productId === productId ? { ...item, quantity: newQuantity } : item
+      item.id === id ? { ...item, quantity: newQuantity } : item
     );
     setCartItems(updatedCart);
     calculateTotal(updatedCart);
 
     try {
-      await updateCartItem(productId, newQuantity);
+      await updateCartItem(id, newQuantity);
     } catch (error) {
       console.error("Error updating cart item:", error);
     }
   };
+  
 
-  const handleRemoveItem = async (productId) => {
-    const filteredCart = cartItems.filter((item) => item.productId !== productId);
+  const handleRemoveItem = async (id) => {
+    const filteredCart = cartItems.filter((item) => item.id !== id); // Filter by `id`
     setCartItems(filteredCart);
     calculateTotal(filteredCart);
-
+  
     try {
-      await removeCartItem(productId);
+      await removeCartItem(id); // Use the cart item's `id`
     } catch (error) {
       console.error("Error removing cart item:", error);
     }
   };
+  
+
+  const handlePlaceOrder = async () => {
+    if (!shippingAddress || !paymentInformation) {
+      alert("Please provide shipping address and payment information.");
+      return;
+    }
+  
+    try {
+      const response = await placeOrder(email, shippingAddress, paymentInformation);
+      console.log("Order placed successfully:", response);
+      alert("Order placed successfully!");
+      window.location.reload(); // Forces a page reload
+
+    } catch (error) {
+      console.error("Error placing order:", error.response?.data || error.message);
+      alert(`Failed to place order: ${error.response?.data || error.message}`);
+    }
+  };
+  
 
   if (cartItems.length === 0) {
     return (
       <Container className="cart-empty">
         <h3>Your Cart is Empty</h3>
-        <Button variant="primary" onClick={() => window.location.replace("/")}>
+        <Button variant="primary" onClick={() => window.location.replace("/products/search")}>
           Continue Shopping
         </Button>
       </Container>
@@ -84,6 +113,8 @@ const Cart = () => {
   }
 
   return (
+   <>
+   <DefaultNavbar/>
     <Container className="cart-container">
       <h2>Your Cart</h2>
       <Table striped bordered hover>
@@ -116,7 +147,7 @@ const Cart = () => {
                     size="sm"
                     onClick={() =>
                       handleQuantityChange(
-                        item.productId,
+                        item.id,
                         Math.max(1, item.quantity - 1)
                       )
                     }
@@ -127,7 +158,7 @@ const Cart = () => {
                   <Button
                     variant="outline-secondary"
                     size="sm"
-                    onClick={() => handleQuantityChange(item.productId, item.quantity + 1)}
+                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                   >
                     +
                   </Button>
@@ -138,7 +169,7 @@ const Cart = () => {
                 <Button
                   variant="danger"
                   size="sm"
-                  onClick={() => handleRemoveItem(item.productId)}
+                  onClick={() => handleRemoveItem(item.id)}
                 >
                   Remove
                 </Button>
@@ -150,11 +181,32 @@ const Cart = () => {
       <div className="cart-summary">
         <h4>Total Items: {cartItems.length}</h4>
         <h4>Total Price: Rs {totalPrice}</h4>
-        <Button variant="success" size="md">
-          Proceed to Checkout
+        <div>
+          <label>Shipping Address:</label>
+          <input
+            type="text"
+            value={shippingAddress}
+            onChange={(e) => setShippingAddress(e.target.value)}
+            placeholder="Enter your shipping address"
+            className="form-control"
+          />
+        </div>
+        <div>
+          <label>Payment Information:</label>
+          <input
+            type="text"
+            value={paymentInformation}
+            onChange={(e) => setPaymentInformation(e.target.value)}
+            placeholder="Enter payment information"
+            className="form-control"
+          />
+        </div>
+        <Button variant="success" size="md" onClick={handlePlaceOrder}>
+          Place Order
         </Button>
       </div>
     </Container>
+    </> 
   );
 };
 

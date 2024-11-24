@@ -25,17 +25,15 @@ export const getCartByEmail = async (email) => {
   };
   
   // Function to update the quantity of a cart item
-export const updateCartItem = async (id, quantity) => {
-  try {
-    const response = await axios.put(`${API_BASE_URL}/${id}`, null, {
-      params: { quantity },
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Error updating cart item:", error);
-    throw error;
-  }
-};
+  export const updateCartItem = async (id, quantity) => {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/${id}`, { quantity });
+      return response.data;
+    } catch (error) {
+      console.error("Error updating cart item:", error);
+      throw error;
+    }
+  };
 
 // Function to remove a cart item
 export const removeCartItem = async (id) => {
